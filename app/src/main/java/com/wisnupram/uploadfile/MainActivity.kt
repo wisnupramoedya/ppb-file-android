@@ -10,6 +10,7 @@ import android.graphics.BitmapFactory
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
+import android.os.Environment
 import android.provider.DocumentsContract
 import android.provider.MediaStore
 import android.util.Base64
@@ -28,6 +29,7 @@ import retrofit2.Callback
 import retrofit2.Response
 import java.io.ByteArrayOutputStream
 import java.io.File
+import java.lang.Long
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -179,10 +181,11 @@ class MainActivity : AppCompatActivity() {
 
     private fun getImagePath(uri: Uri?, selection: String?): String {
         var path: String? = null
-        val cursor = contentResolver.query(uri!!, null, selection, null, null )
+        var images_data = arrayOf(MediaStore.Images.Media.DATA);
+        val cursor = contentResolver.query(uri!!, images_data, selection, null, null )
         if (cursor != null){
             if (cursor.moveToFirst()) {
-                path = cursor.getString(cursor.getColumnIndex(MediaStore.Images.Media.DATA))
+                path = cursor.getString(cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA))
             }
             cursor.close()
         }
@@ -198,14 +201,17 @@ class MainActivity : AppCompatActivity() {
             val docId = DocumentsContract.getDocumentId(uri)
             if ("com.android.providers.media.documents" == uri?.authority){
                 val id = docId.split(":")[1]
-                val selsetion = MediaStore.Images.Media._ID + "=" + id
+                val selection = MediaStore.Images.Media._ID + "=" + id
                 imagePath = getImagePath(MediaStore.Images.Media.EXTERNAL_CONTENT_URI,
-                    selsetion)
+                    selection)
             }
             else if ("com.android.providers.downloads.documents" == uri?.authority){
                 val contentUri = ContentUris.withAppendedId(Uri.parse(
-                    "content://downloads/public_downloads"), java.lang.Long.valueOf(docId))
+                    "content://downloads/public_downloads"), Long.valueOf(docId))
                 imagePath = getImagePath(contentUri, null)
+            }
+            else if ("com.android.externalstorage.documents" == uri?.authority) {
+                imagePath = Environment.getExternalStorageDirectory().toString() + "/" + docId.split(":")[1]
             }
         }
         else if ("content".equals(uri?.scheme, ignoreCase = true)){
