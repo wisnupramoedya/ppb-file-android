@@ -1,26 +1,47 @@
 package com.wisnupram.uploadfile
 
-import android.content.Intent
 import android.os.Bundle
-import android.widget.Button
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.DefaultItemAnimator
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.wisnupram.uploadfile.adapter.AttendanceAdapter
+import com.wisnupram.uploadfile.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
-    private lateinit var btnStart: Button
+    private val TAG = "MainActivity"
+    private lateinit var binding: ActivityMainBinding
+    private var aAdapter = AttendanceAdapter()
+    lateinit var viewModel: MainViewModel
+    private val presenceResponse = PresenceResponseInterface.getInstance()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
-        btnStart = findViewById(R.id.buttonStart)
+        viewModel = ViewModelProvider(this, MainViewModelFactory(MainRepository(presenceResponse))).get(MainViewModel::class.java)
 
-        btnStart.setOnClickListener{
-            openKTPVerif()
+        binding.recyclerview.apply {
+            adapter = aAdapter
+            layoutManager = LinearLayoutManager(context)
+            itemAnimator = DefaultItemAnimator()
         }
-    }
 
-    private fun openKTPVerif() {
-        val intent = Intent(this, Detail::class.java)
-        startActivity(intent)
+        viewModel.presenceList.observe(this, {
+            Log.d(TAG, "onCreate: $it")
+            aAdapter.setPresenceList(it)
+        })
+
+        viewModel.errorMesssage.observe(this, { })
+
+        viewModel.getAllPresence()
+
+        //supportFragmentManager.beginTransaction().apply {
+        //    replace(binding.frame.id, Homepage())
+        //    addToBackStack(null)
+        //    commit()
+        //}
     }
 }

@@ -33,7 +33,7 @@ import java.lang.Long
 import java.text.SimpleDateFormat
 import java.util.*
 
-class Detail : AppCompatActivity() {
+class FotoActivity : AppCompatActivity() {
     private var mImageView: ImageView? = null
     private var mUri: Uri? = null
 
@@ -46,7 +46,7 @@ class Detail : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.detail)
+        setContentView(R.layout.foto_activity)
 
         initializeWidgets()
 
