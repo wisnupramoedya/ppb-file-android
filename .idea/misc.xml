@@ -3,9 +3,11 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Application/Android/UploadFile/app/src/main/res/drawable/button_shape.xml" value="0.20729166666666668" />
-        <entry key="..\:/Application/Android/UploadFile/app/src/main/res/layout/activity_main.xml" value="0.4" />
-        <entry key="..\:/Application/Android/UploadFile/app/src/main/res/xml/file_paths.xml" value="0.19114583333333332" />
+        <entry key="..\:/Users/LENOVO/AndroidStudioProjects/MvvmRetrofitRecyclerviewKotlin/app/src/main/res/drawable/ic_my_icon.xml" value="0.19166666666666668" />
+        <entry key="..\:/Users/LENOVO/AndroidStudioProjects/MvvmRetrofitRecyclerviewKotlin/app/src/main/res/layout/activity_main.xml" value="0.432183908045977" />
+        <entry key="..\:/Users/LENOVO/AndroidStudioProjects/MvvmRetrofitRecyclerviewKotlin/app/src/main/res/layout/adapter_movie.xml" value="0.18333333333333332" />
+        <entry key="..\:/Users/LENOVO/AndroidStudioProjects/MvvmRetrofitRecyclerviewKotlin/app/src/main/res/layout/fragment_detail.xml" value="0.17552083333333332" />
+        <entry key="..\:/Users/LENOVO/AndroidStudioProjects/MvvmRetrofitRecyclerviewKotlin/app/src/main/res/layout/list_item.xml" value="0.3650485436893204" />
       </map>
     </option>
   </component>
