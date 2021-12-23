@@ -13,9 +13,6 @@
         <action
             android:id="@+id/action_mainFragment_to_sendFragment"
             app:destination="@id/sendFragment" />
-        <action
-            android:id="@+id/action_mainFragment_to_detail"
-            app:destination="@id/detail" />
     </fragment>
     <fragment
         android:id="@+id/sendFragment"
@@ -30,9 +27,5 @@
         android:id="@+id/detail"
         android:name="com.thomas.mvvmretrofitrecyclerviewkotlin.fragment.DetailFragment"
         android:label="fragment_detail"
-        tools:layout="@layout/fragment_detail" >
-        <action
-            android:id="@+id/action_detail_to_mainFragment"
-            app:destination="@id/mainFragment" />
-    </fragment>
+        tools:layout="@layout/fragment_detail" />
 </navigation>

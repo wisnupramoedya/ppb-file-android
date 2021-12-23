@@ -76,7 +76,7 @@ class SendFragment : Fragment(R.layout.fragment_send) {
         viewModel = (activity as MainActivity).viewModel
 
         viewModel.presence.observe(viewLifecycleOwner, {
-            binding.resultTextView.text = it.name
+            binding.resultTextView.text = "Data ${it.name} berhasil diinput"
         })
 
         binding.btnCapture.setOnClickListener {
