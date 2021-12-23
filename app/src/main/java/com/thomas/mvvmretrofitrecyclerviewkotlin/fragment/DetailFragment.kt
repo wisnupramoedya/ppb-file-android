@@ -7,7 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.thomas.mvvmretrofitrecyclerviewkotlin.R
 
-class Detail : Fragment(R.layout.fragment_detail) {
+class DetailFragment : Fragment(R.layout.fragment_detail) {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
