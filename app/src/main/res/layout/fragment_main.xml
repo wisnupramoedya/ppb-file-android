@@ -28,7 +28,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:src="@drawable/font_app"
-                android:contentDescription="TitleApp" />
+                android:paddingStart="-25dp"
+                android:contentDescription="TitleApp"
+                tools:ignore="RtlSymmetry" />
         </LinearLayout>
 
         <TextView
