@@ -31,6 +31,10 @@ class SendFragment : Fragment(R.layout.fragment_send) {
     private var param1: String? = null
     private var param2: String? = null
 
+    //private var mImageView: ImageView? = null
+    private var mUri: Uri? = null
+    private val OPERATION_CAPTURE_PHOTO = 1
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {

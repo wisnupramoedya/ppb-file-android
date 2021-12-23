@@ -12,6 +12,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.core.content.FileProvider
+import androidx.navigation.fragment.findNavController
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.thomas.mvvmretrofitrecyclerviewkotlin.MainActivity
 import com.thomas.mvvmretrofitrecyclerviewkotlin.MainAdapter
@@ -88,7 +89,7 @@ class MainFragment : Fragment() {
         viewModel.getAllMovies()
 
         binding.fab.setOnClickListener {
-            capturePhoto()
+            findNavController().navigate(R.id.action_mainFragment_to_sendFragment)
         }
     }
 }
