@@ -1,26 +1,17 @@
 package com.thomas.mvvmretrofitrecyclerviewkotlin.fragment
 
-import android.content.Intent
-import android.net.Uri
-import android.os.Build
 import android.os.Bundle
-import android.provider.MediaStore
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
-import androidx.core.content.FileProvider
 import androidx.navigation.fragment.findNavController
-import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.thomas.mvvmretrofitrecyclerviewkotlin.MainActivity
 import com.thomas.mvvmretrofitrecyclerviewkotlin.MainAdapter
 import com.thomas.mvvmretrofitrecyclerviewkotlin.MainViewModel
 import com.thomas.mvvmretrofitrecyclerviewkotlin.R
 import com.thomas.mvvmretrofitrecyclerviewkotlin.databinding.FragmentMainBinding
-import java.io.File
-import java.text.SimpleDateFormat
 import java.util.*
 
 // TODO: Rename parameter arguments, choose names that match
@@ -37,11 +28,7 @@ class MainFragment : Fragment() {
     lateinit var viewModel: MainViewModel
     lateinit var adapter: MainAdapter
 
-    val TAG = "BreakingNewsFragment"
-
-    //private var mImageView: ImageView? = null
-    private var mUri: Uri? = null
-    private val OPERATION_CAPTURE_PHOTO = 1
+    val TAG = "MainFragment"
 
     private var _binding: FragmentMainBinding? = null
     private val binding get() = _binding!!
@@ -86,7 +73,7 @@ class MainFragment : Fragment() {
 
         })
 
-        viewModel.getAllMovies()
+        viewModel.getAllPresences()
 
         binding.fab.setOnClickListener {
             findNavController().navigate(R.id.action_mainFragment_to_sendFragment)
