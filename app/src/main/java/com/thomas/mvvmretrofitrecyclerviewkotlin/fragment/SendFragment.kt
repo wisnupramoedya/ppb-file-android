@@ -23,6 +23,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.core.content.FileProvider
+import com.thomas.mvvmretrofitrecyclerviewkotlin.BuildConfig
 import com.thomas.mvvmretrofitrecyclerviewkotlin.MainActivity
 import com.thomas.mvvmretrofitrecyclerviewkotlin.MainViewModel
 import com.thomas.mvvmretrofitrecyclerviewkotlin.R
@@ -112,20 +113,14 @@ class SendFragment : Fragment(R.layout.fragment_send) {
             capturedImage.delete()
         }
 
-        Log.d(TAG, "CapturePhoto: capture image")
-
         capturedImage.createNewFile()
         mUri = if(Build.VERSION.SDK_INT >= 24){
-            FileProvider.getUriForFile(requireContext(), "com.thomas.mvvmretrofitrecyclerviewkotlin.fileprovider", capturedImage)
+            FileProvider.getUriForFile(requireContext(), "${BuildConfig.APPLICATION_ID}.provider", capturedImage)
         } else {
             Uri.fromFile(capturedImage)
         }
 
-        Log.d(TAG, "CapturePhoto: create new file")
-
         val intent = Intent("android.media.action.IMAGE_CAPTURE")
-
-        Log.d(TAG, "CapturePhoto: build intent")
         intent.putExtra(MediaStore.EXTRA_OUTPUT, mUri)
         startActivityForResult(intent, OPERATION_CAPTURE_PHOTO)
     }

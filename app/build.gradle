@@ -10,7 +10,7 @@ android {
     buildToolsVersion "30.0.2"
 
     defaultConfig {
-        applicationId "com.velmurugan.mvvmretrofitrecyclerviewkotlin"
+        applicationId "com.thomas.mvvmretrofitrecyclerviewkotlin"
         minSdkVersion 24
         targetSdkVersion 30
         versionCode 1
