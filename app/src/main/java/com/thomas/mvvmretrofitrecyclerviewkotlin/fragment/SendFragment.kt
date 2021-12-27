@@ -34,15 +34,9 @@ import java.text.SimpleDateFormat
 import java.util.*
 import java.lang.Long
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
 class SendFragment : Fragment(R.layout.fragment_send) {
     lateinit var viewModel: MainViewModel
 
-    //private var mImageView: ImageView? = null
     private var mUri: Uri? = null
     private val OPERATION_CAPTURE_PHOTO = 1
     private val OPERATION_CHOOSE_PHOTO = 2
@@ -50,18 +44,7 @@ class SendFragment : Fragment(R.layout.fragment_send) {
     private var _binding: FragmentSendBinding? = null
     private val binding get() = _binding!!
 
-    private var param1: String? = null
-    private var param2: String? = null
-
     val TAG = "SendFragment"
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

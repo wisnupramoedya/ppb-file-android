@@ -13,17 +13,16 @@ import androidx.core.content.FileProvider
 import androidx.lifecycle.ViewModelProvider
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.thomas.mvvmretrofitrecyclerviewkotlin.databinding.ActivityMainBinding
+import com.thomas.mvvmretrofitrecyclerviewkotlin.databinding.FragmentHomeBinding
 import com.thomas.mvvmretrofitrecyclerviewkotlin.network.RetrofitClient
 import java.io.File
 import java.text.SimpleDateFormat
 import java.util.*
 
 class MainActivity : AppCompatActivity() {
-    private val TAG = "MainActivity"
     private lateinit var binding: ActivityMainBinding
     lateinit var viewModel: MainViewModel
     private val retrofitService = RetrofitClient.instance
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
