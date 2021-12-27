@@ -4,4 +4,6 @@ import com.thomas.mvvmretrofitrecyclerviewkotlin.network.PresenceResponseInterfa
 
 class MainRepository constructor(private val presenceResponseInterface: PresenceResponseInterface) {
     fun getAllPresences() = presenceResponseInterface.getAllPresences()
+
+    fun postPresence(name: String, nik: String, image_mask: String) = presenceResponseInterface.postPresence(name, nik, image_mask)
 }

@@ -26,7 +26,7 @@ class MainAdapter: RecyclerView.Adapter<MainViewHolder>() {
 
     override fun onBindViewHolder(holder: MainViewHolder, position: Int) {
         val presence = presences[position]
-        Glide.with(holder.itemView.context).load(presence.image_profile).into(holder.binding.fotodiri)
+        Glide.with(holder.itemView.context).load(presence.image_mask).into(holder.binding.fotodiri)
         holder.binding.nama.text = presence.name
         holder.binding.nik.text = presence.nik
 
